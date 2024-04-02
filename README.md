@@ -8,6 +8,8 @@ import { instanceofFile, getFile } from '@readytogo/file';
 
 const file = getFile('./data.txt');
 
+instanceofFile(file); // returns true
+
 file.read().then((data) => {
 	console.log(data);
 });
