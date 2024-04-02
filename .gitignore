@@ -1,0 +1,18 @@
+# build
+node_modules/
+dist/
+
+# test
+tmp/
+
+# logs
+npm-debug.log
+yarn-error.log
+
+# system
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+

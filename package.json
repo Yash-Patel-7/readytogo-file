@@ -1,0 +1,52 @@
+{
+	"name": "@readytogo/file",
+	"version": "1.0.0",
+	"description": "Safely perform async operations on the same file",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"test": "jest",
+		"prepack": "npm run build",
+		"prepublishOnly": "npm run test"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"keywords": [
+		"file",
+		"async",
+		"fs",
+		"promises",
+		"path",
+		"queue",
+		"read",
+		"write",
+		"filesystem"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Yash-Patel-7/readytogo-file.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Yash-Patel-7/readytogo-file/issues"
+	},
+	"homepage": "https://github.com/Yash-Patel-7/readytogo-file#readme",
+	"author": {
+		"name": "Yash Patel",
+		"email": "yashpatel001995@gmail.com"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"async": "^3.2.5"
+	},
+	"devDependencies": {
+		"@types/async": "^3.2.24",
+		"@types/jest": "^29.5.12",
+		"@types/node": "^20.11.30",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.1.2",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.4.3"
+	}
+}
