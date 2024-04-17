@@ -41,7 +41,8 @@ class File {
 			this._queue.push(async () => {
 				try {
 					await fs.mkdir(dirname(this._path), { recursive: true });
-					await fs.open(this._path, 'wx');
+					const fileHandle = await fs.open(this._path, 'wx');
+					await fileHandle.close();
 					resolve();
 				} catch (error) {
 					if (typeof error === 'object' && error !== null) {
@@ -132,3 +133,4 @@ export {
 	instanceofFile,
 	getFile
 }
+
