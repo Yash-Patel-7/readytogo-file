@@ -14,7 +14,7 @@ file.read().then((data) => {
 	console.log(data);
 });
 
-const newData = "new Data";
+const newData = "new data";
 
 file.write(newData).then(() => {
 	console.log("success");
