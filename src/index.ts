@@ -86,11 +86,14 @@ class File {
 		});
 	}
 
-	public read = (): Promise<string> => {
+	public read(encoding?: BufferEncoding): Promise<string>;
+	public read(encoding: null): Promise<Buffer>;
+	public read(encoding?: BufferEncoding | null): Promise<string | Buffer> {
 		return new Promise((resolve, reject) => {
 			this._queue.push(async () => {
 				try {
-					resolve(await fs.readFile(this._path, 'utf-8'));
+					if (encoding === undefined) encoding = 'utf-8';
+					resolve(await fs.readFile(this._path, encoding));
 				} catch (error) {
 					if (typeof error === 'object' && error !== null) {
 						if ('code' in error && typeof error.code === 'string') {
@@ -105,11 +108,11 @@ class File {
 		});
 	}
 
-	public write = (data: string): Promise<void> => {
+	public write = (data: string | Buffer, encoding?: BufferEncoding): Promise<void> => {
 		return new Promise((resolve, reject) => {
 			this._queue.push(async () => {
 				try {
-					await fs.writeFile(this._path, data, 'utf-8');
+					await fs.writeFile(this._path, data, encoding);
 					resolve();
 				} catch (error) {
 					if (typeof error === 'object' && error !== null) {
@@ -133,4 +136,3 @@ export {
 	instanceofFile,
 	getFile
 }
-
